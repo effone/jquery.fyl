@@ -27,11 +27,11 @@
         var fyls = '<span class=\'fyls\'>{i}<span class=\'fylx\'>&#10006;</span></span>';
         var fylr = '<div class=\'fylr\'>{r}</div>'
 
-        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>').hide();
+        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>');//.hide();
         var clone = $('#' + fyd);
         var pop = clone.find('.pop');
         var err = pop.find('.err');
-        reX();
+        clone.outerWidth(main.outerWidth());
         pop.width(clone.width());
         // Add the predefined values
         var nVal = 0;
@@ -42,6 +42,7 @@
                 nVal++;
             }
         });
+        reX();
 
         $(document).on('click', function () { reX(); });
 
@@ -61,7 +62,6 @@
                 $(clk).parent().remove();
                 reX();
             }
-            main.val($(this).find('.fyls').text().replace(/✖/g, ',').slice(0, -1));
         });
 
         pop.find('.srch').keyup(function () {
@@ -115,6 +115,7 @@
             pop.find('.spin').hide();
             pop.css('margin-top', clone.outerHeight() - 2 + 'px').hide().find('.srch').val('');
             clone.removeClass('open').find('.err').show().html(conf.lang.blank.replace('{x}', conf.char));
+            main.val(clone.find('.fyls').text().replace(/✖/g, ',').slice(0, -1));
         }
 
         function sx(t) { return $.trim($($.parseHTML(t)).text()); }
