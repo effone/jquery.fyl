@@ -1,0 +1,28 @@
+{
+  "name": "jquery.fyl",
+  "version": "1.0.0",
+  "description": "Yet another full-fledged jQuery AJAX auto-complete plugin with bare minimum code.",
+  "main": "./dist/jquery.fyl.min.js",
+  "ecosystem": "jquery",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effone/jquery.fyl.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "autocomplete",
+    "ajax",
+    "bare",
+    "small",
+    "tiny"
+  ],
+  "author": "effone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/effone/jquery.fyl/issues"
+  },
+  "homepage": "https://github.com/effone/jquery.fyl#readme"
+}
