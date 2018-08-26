@@ -3,7 +3,7 @@ Yet another full-fledged jQuery AJAX auto-complete plugin with bare minimum code
 4034 bytes / 3.93 KB only (2226 bytes / 2.17 KB : js, 1808 bytes / 1.76 KB : css)
 
 ## Description
-This is the third component in YAFF jQ plugin series using minimum possible code covering baximum features keeping resource size as low as possible. This plugin can make asynchronous AJAX post request over XMLHTTP (jqXHR) to get data from server in JSON object format. Useful to fetch data array from database based on defined search string as user types in.
+This is the third component in YAFF jQ plugin series using minimum possible code covering maximum features keeping resource size as low as possible. This plugin can make asynchronous AJAX post request (over XMLHttpRequest, jqXHR) to get data from backend in JSON object format. Useful to fetch data array from database based on defined search string as user types in.
 
 ## Dependency
 Since it is a jQuery plugin; jQuery library should be included on prior.
@@ -24,7 +24,7 @@ Since it is a jQuery plugin; jQuery library should be included on prior.
 If the backend returned values contain any value which is already selected and available the same will not appear in selectable result list.
 
 ### Single Selection:
-You can define the component to be single selection (like select dropdown form element) and it will act that way.
+You can define the component to be single selection (like select dropdown / combo form element) and it will act that way.
 
 `$('#target').fyl({ only: true });`
 

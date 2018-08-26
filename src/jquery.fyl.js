@@ -27,7 +27,7 @@
         var fyls = '<span class=\'fyls\'>{i}<span class=\'fylx\'>&#10006;</span></span>';
         var fylr = '<div class=\'fylr\'>{r}</div>'
 
-        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>');//.hide();
+        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>').hide();
         var clone = $('#' + fyd);
         var pop = clone.find('.pop');
         var err = pop.find('.err');
