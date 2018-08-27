@@ -1,10 +1,36 @@
 /**
- * jquery.fyl : Yet another full-fledged jQuery AJAX auto-complete plugin with bare minimum code.
+ * MyBB Autocomplete
  * 
  * @author: effone <me@eff.one>
+ * @author: Eric Jackson
  * @website: https://github.com/effone/jquery.fyl
  * @license: MIT
  */
+
+class MyBBAutocomplete {
+    constructor (customOptions, selector) {
+        let options = Object.assign({
+            bank: '',
+            only: false,
+            char: 3,
+            vals: '',
+            lang: {
+                blank: "Min {x} chars.",
+                more: "{x} more chars.",
+                none: "No match.",
+                unexp: "Bad data.",
+                error: "Error!"
+            }
+        }, customOptions);
+
+        if (!isNumeric(options.char) || options.char < 1) {
+            conf.char = 1;
+        }
+
+        const isNumeric = (n) => { !isNaN(parseFloat(n)) && isFinite(n) };
+    }
+}
+
 ; (function ($) {
     $.fn.fyl = function (opts) {
         var conf = $.extend({
@@ -27,7 +53,8 @@
         var fyls = '<span class=\'fyls\'>{i}<span class=\'fylx\'>&#10006;</span></span>';
         var fylr = '<div class=\'fylr\'>{r}</div>'
 
-        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>').hide();
+
+        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>');//.hide();
         var clone = $('#' + fyd);
         var pop = clone.find('.pop');
         var err = pop.find('.err');
@@ -43,6 +70,7 @@
             }
         });
         reX();
+
 
         $(document).on('click', function () { reX(); });
 
@@ -69,12 +97,11 @@
             var inVal = sx($(this).val());
             var inLen = inVal.length;
             if (inLen < conf.char) {
-                pop.find('.spin').hide();
                 var errStr = inLen > 0 ? 'more' : 'blank';
                 err.show().html(conf.lang[errStr].replace('{x}', conf.char - inLen));
             } else {
-                pop.find('.spin').show();
                 err.hide();
+                pop.find('.spin').show();
                 $.ajax({
                     url: conf.bank,
                     type: 'post',
