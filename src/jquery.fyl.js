@@ -69,11 +69,12 @@
             var inVal = sx($(this).val());
             var inLen = inVal.length;
             if (inLen < conf.char) {
+                pop.find('.spin').hide();
                 var errStr = inLen > 0 ? 'more' : 'blank';
                 err.show().html(conf.lang[errStr].replace('{x}', conf.char - inLen));
             } else {
-                err.hide();
                 pop.find('.spin').show();
+                err.hide();
                 $.ajax({
                     url: conf.bank,
                     type: 'post',
