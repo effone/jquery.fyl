@@ -6,10 +6,10 @@ const sourcemaps = require('gulp-sourcemaps');
 const connect = require('gulp-connect');
  
 gulp.task('scss', () =>
-  gulp.src('./src/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(connect.reload())
+    gulp.src('./src/scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist/css'))
+        .pipe(connect.reload())
 );
 
 gulp.task('js', () =>
