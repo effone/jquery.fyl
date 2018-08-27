@@ -32,7 +32,7 @@ gulp.task('html', () =>
 
 gulp.task('connect', () =>
     connect.server({
-        root: 'dist/example',
+        root: ['dist/example/', 'dist/'],
         livereload: true
     })
 );

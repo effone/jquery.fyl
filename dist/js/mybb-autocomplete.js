@@ -15,7 +15,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var MyBBAutocomplete = function MyBBAutocomplete(customOptions, selector) {
   _classCallCheck(this, MyBBAutocomplete);
 
-  var options = _extends({
+  this.options = _extends({
     bank: '',
     only: false,
     char: 3,
@@ -29,12 +29,22 @@ var MyBBAutocomplete = function MyBBAutocomplete(customOptions, selector) {
     }
   }, customOptions);
 
-  if (!isNumeric(options.char) || options.char < 1) {
-    conf.char = 1;
+  if (!isNumeric(this.options.char) || this.options.char < 1) {
+    this.options.char = 1;
   }
 
-  var isNumeric = function isNumeric(n) {
-    !isNaN(parseFloat(n)) && isFinite(n);
+  var isNumeric = function isNumeric(number) {
+    return !isNaN(parseFloat(number)) && isFinite(number);
+  };
+
+  var build = function build(domString) {
+    return parseHTML(domString).textContent.trim;
+  };
+
+  var parseHTML = function parseHTML(domString) {
+    var tmp = document.implementation.createHTMLDocument();
+    tmp.body.innerHTML = domString;
+    return tmp.body.children;
   };
 };
 

@@ -19,7 +19,10 @@
     "small",
     "tiny"
   ],
-  "author": "effone",
+  "contributors": [
+    "effone",
+    "Eric-Jackson"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/effone/jquery.fyl/issues"

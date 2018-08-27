@@ -9,7 +9,7 @@
 
 class MyBBAutocomplete {
     constructor (customOptions, selector) {
-        let options = Object.assign({
+        this.options = Object.assign({
             bank: '',
             only: false,
             char: 3,
@@ -23,11 +23,18 @@ class MyBBAutocomplete {
             }
         }, customOptions);
 
-        if (!isNumeric(options.char) || options.char < 1) {
-            conf.char = 1;
+        if (!isNumeric(this.options.char) || this.options.char < 1) {
+            this.options.char = 1;
         }
 
-        const isNumeric = (n) => { !isNaN(parseFloat(n)) && isFinite(n) };
+        const isNumeric = (number) => !isNaN(parseFloat(number)) && isFinite(number);
+        const build = (domString) => parseHTML(domString).textContent.trim;
+
+        const parseHTML = function(domString) {
+            let tmp = document.implementation.createHTMLDocument();
+            tmp.body.innerHTML = domString;
+            return tmp.body.children;
+        };
     }
 }
 
