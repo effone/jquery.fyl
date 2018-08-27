@@ -13,14 +13,14 @@ gulp.task('scss', () =>
 );
 
 gulp.task('js', () =>
-	gulp.src('src/js/**/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(babel({
+    gulp.src('src/js/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel({
             presets: ['@babel/preset-env'],
             plugins: ['@babel/plugin-transform-object-assign']
-		}))
-		.pipe(concat('mybb-autocomplete.js'))
-		.pipe(sourcemaps.write('.'))
+        }))
+        .pipe(concat('mybb-autocomplete.js'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/js'))
         .pipe(connect.reload())
 );
