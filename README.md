@@ -68,6 +68,12 @@ $('#target').fyl({
     bank: 'examples/jqfyl.php' // Source link : mandatory option value
 });
 ```
+
+... or you can use the HTML data attributes and the plugin will load automatically
+```
+<input type=\'users\' name=\'users\' id=\'user_select\' data-plugin=\'fyl\' data-bank=\'examples/user.php\' value="effone, Eric J" />
+```
+
 Thats all. Your target text input field is replaced by __fyl__ (autocomplete component).
 
 ## Options
