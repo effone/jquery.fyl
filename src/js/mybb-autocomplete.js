@@ -52,7 +52,7 @@ class MyBBAutocomplete {
                 unexp: "Bad data.",
                 error: "Error!"
             }
-        }, opts);
+        }, opts, $(this).data());
 
         if (!$.isNumeric(conf.char) || conf.char < 1) { conf.char = 1; }
         var main = $(this);
@@ -60,8 +60,7 @@ class MyBBAutocomplete {
         var fyls = '<span class=\'fyls\'>{i}<span class=\'fylx\'>&#10006;</span></span>';
         var fylr = '<div class=\'fylr\'>{r}</div>'
 
-
-        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>');//.hide();
+        main.after('<div id=\'' + fyd + '\'><div class=\'pop\'><input type=\'text\' class=\'srch\' placeholder=\'Search\' autocomplete=\'off\'><span class=\'spin\'></span><div class=\'err\'></div><div class=\'rslt\'></div></div></div>').hide();
         var clone = $('#' + fyd);
         var pop = clone.find('.pop');
         var err = pop.find('.err');
@@ -77,7 +76,6 @@ class MyBBAutocomplete {
             }
         });
         reX();
-
 
         $(document).on('click', function () { reX(); });
 
@@ -104,11 +102,12 @@ class MyBBAutocomplete {
             var inVal = sx($(this).val());
             var inLen = inVal.length;
             if (inLen < conf.char) {
+                pop.find('.spin').hide();
                 var errStr = inLen > 0 ? 'more' : 'blank';
                 err.show().html(conf.lang[errStr].replace('{x}', conf.char - inLen));
             } else {
-                err.hide();
                 pop.find('.spin').show();
+                err.hide();
                 $.ajax({
                     url: conf.bank,
                     type: 'post',
@@ -155,4 +154,5 @@ class MyBBAutocomplete {
 
         function sx(t) { return $.trim($($.parseHTML(t)).text()); }
     };
+    $(function () { $('[data-plugin=fyl]').fyl(); });
 }(jQuery));
