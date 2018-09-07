@@ -154,7 +154,5 @@ class MyBBAutocomplete {
 
         function sx(t) { return $.trim($($.parseHTML(t)).text()); }
     };
-    $(function () {
-        $('[data-plugin]').each(function () { if (this.getAttribute('data-plugin') == 'fyl') $(this).fyl(); });
-    });
+    $(function () { $('[data-plugin=fyl]').fyl(); });
 }(jQuery));
