@@ -87,8 +87,6 @@ $('#target').fyl({
 });
 ```
 
-**Note**: You can target the input text element as you wish but be sure the target element carries a unique ID, this is required to keep the component unique while using multi-instances in a single page.
-
 ## Example
 
 ## Version History
