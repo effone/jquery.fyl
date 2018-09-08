@@ -1,126 +1,134 @@
-div[id^="fyl-"] {
-    background: #FFF;
-    border: 1px solid #EEE;
-    padding: 0 3px 3px;
-    border-radius: 3px;
-    min-height: 29px;
+/**
+ * JQuery fyl : SASS Partial
+ * @author
+ * 
+ */
+
+$back-color: #FFF;
+$offback-color: #F8F8F8;
+$light-border-color: #EEE;
+$fade-text-color: #999;
+$mybb-blue: #007FD0;
+$mybb-orange: #FF7500;
+$mybb-orange-rgba: rgba(255, 117, 0, 0.3);
+.fyl {
+  background: $back-color;
+  border: 1px solid $light-border-color;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px 0;
+  padding: 0 3px 3px;
+  border-radius: 3px;
+  min-height: 29px;
+  cursor: pointer;
+  width: 200px;
+  &.open {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  > .fyls {
+    border: 1px solid $light-border-color;
+    border-radius: 2px;
+    padding: 3px 0 3px 3px;
+    margin-right: 3px;
+    display: inline-block;
+    cursor: default;
+    box-sizing: border-box;
+    margin-top: 3px;
+  }
+  .fylx {
+    color: $fade-text-color;
+    border-left: 1px solid $light-border-color;
+    display: inline-block;
+    width: 10px;
+    text-align: center;
+    font-size: 10px;
+    padding: 3px;
     cursor: pointer;
-    width: 200px;
-
-    &.open {
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
-
-    > .fyls {
-        border: 1px solid #EEE;
-        border-radius: 2px;
-        padding: 3px 0 3px 3px;
-        margin-right: 3px;
-        display: inline-block;
-        cursor: default;
-        box-sizing: border-box;
-        margin-top: 3px;
-    }
-
+    margin-left: 5px;
+  }
+  > span:hover {
+    color: red;
     .fylx {
-        color: #999;
-        border-left: 1px solid #eee;
-        display: inline-block;
-        width: 10px;
-        text-align: center;
-        font-size: 10px;
-        padding: 3px;
-        cursor: pointer;
-        margin-left: 5px;
+      color: red;
     }
-
-    > span:hover,
-    > span:hover .fylx {
-        color: red;
-    }
-
-    input {
+  }
+  input {
+    margin: 0;
+    padding: 3px 0;
+  }
+  > .pop {
+    background: $back-color;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -4px;
+    padding: 0 3px 3px;
+    border: 1px solid $light-border-color;
+    border-radius: 0 0 3px 3px;
+    border-top: none;
+    min-width: 100px;
+    > {
+      .srch {
+        width: 100%;
+        border: 1px solid $light-border-color;
+        box-sizing: border-box;
         margin: 0;
-        padding: 3px 0;
-    }
-
-    > .pop {
-        background: #FFF;
+        padding: 3px 20px 3px 3px;
+        background: $offback-color;
+      }
+      .err {
+        color: red;
+        font-size: 12px;
+        background: $mybb-orange-rgba;
+        padding: 5px;
+        border-radius: 2px;
+        margin-top: 3px;
+        cursor: default;
+      }
+      .rslt {
+        > .fylr {
+          padding: 5px;
+          cursor: pointer;
+          border-bottom: 1px solid $light-border-color;
+          &:hover {
+            background: $offback-color;
+          }
+          span {
+            color: $mybb-blue;
+            text-decoration: underline;
+          }
+        }
+        margin: 0;
+        padding: 0;
+        border: none;
+        max-height: 100px;
+        overflow-x: auto;
+      }
+      .spin {
+        display: inline-block;
         position: absolute;
-        margin-top: 30px;
-        margin-left: -4px;
-        padding: 0 3px 3px;
-        border: 1px solid #EEE;
-        border-radius: 0 0 3px 3px;
-        border-top: none;
-        min-width: 100px;
-
-        > .srch {
-            width: 100%;
-            border: 1px solid #EEE;
-            box-sizing: border-box;
-            padding: 3px 20px 3px 3px;
-            background: #F9F9F9;
-        }
-
-        > .err {
-            color: red;
-            font-size: 12px;
-            background: rgba(255, 117, 0, .3);
-            padding: 5px;
-            border-radius: 2px;
-            margin-top: 3px;
-            cursor: default;
-        }
-
-        > .rslt {
-            margin: 0;
-            padding: 0;
-            border: none;
-            max-height: 100px;
-            overflow-x: auto;
-
-            > .fylr {
-                padding: 5px;
-                cursor: pointer;
-                border-bottom: 1px solid #EEE;
-    
-                &:hover {
-                    background: #f8f8f8;
-                }
-    
-                span {
-                    color: #007FD0;
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        .spin {
-            display: inline-block;
-            position: absolute;
-            margin-left: -20px;
-            margin-top: 4px;
-            width: 10px;
-            height: 10px;
-            border: 3px solid rgba(255, 117, 0, .3);
-            border-radius: 50%;
-            border-top-color: #FF7500;
-            animation: spin 1s ease-in-out infinite;
-            -webkit-animation: spin 1s ease-in-out infinite;
-        }
+        margin-left: -20px;
+        margin-top: 4px;
+        width: 10px;
+        height: 10px;
+        border: 3px solid $mybb-orange-rgba;
+        border-radius: 50%;
+        border-top-color: $mybb-orange;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+      }
     }
+  }
 }
 
 @keyframes spin {
-    to {
-        -webkit-transform: rotate(360deg);
-    }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes spin {
-    to {
-        -webkit-transform: rotate(360deg);
-    }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
